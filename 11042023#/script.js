@@ -21,17 +21,13 @@ function handleFileSelect(event) {
     const files = event.dataTransfer.files;
     const file = files[0];
 
-    // Check if the dropped file is an image
     if (file.type.startsWith('image/')) {
-      // Create an <img> element and set its source to the dropped file
       const img = document.createElement('img');
       img.src = URL.createObjectURL(file);
 
-      // Replace the text in the <div> with the <img> element
       dropZone.innerHTML = '';
       dropZone.appendChild(img);
     } else {
-      // Display an error message if the dropped file is not an image
       dropZone.innerHTML = '<p>Please drop an image file</p>';
     }
   }
